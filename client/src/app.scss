@@ -1,0 +1,30 @@
+/* Variables */ 
+$bg-color: darken(#414850, 5%);
+$navbar-bg: darken(#414850, 10%);
+$main-color: #414850;
+$daycell-bg: #74b9ff;
+
+@import './components/auth/auth.scss';
+@import './components/layout/homepage.scss';
+@import './components/layout/navbar.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+
+
+
+
+
+/* Global */
+body {
+  margin: 0;
+	font-family: 'Quicksand', sans-serif;
+	background-color: #fff;
+
+
+}
+
+input {
+  font-family: 'Quicksand', sans-serif;
+}
