@@ -1,0 +1,21 @@
+.numbers{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+    padding: 50px 0;
+
+    .number{
+        margin: 25px 0;
+        h1{
+            font-size: 80px;
+            margin: 0;
+        }
+        p{
+            margin: 0;
+        }
+    }
+}

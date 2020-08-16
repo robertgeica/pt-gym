@@ -1,0 +1,19 @@
+.border{
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    position: relative;
+    margin:30px;
+    width: 170px;
+
+    .link{
+        background-color: black;
+        padding: 5px 10px;
+        position: absolute;
+        top: -15px;
+        left: -5px;
+        color: white;
+        text-decoration: none;
+        word-break:break-all;
+    }
+}

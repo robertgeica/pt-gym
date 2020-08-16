@@ -1,0 +1,28 @@
+.image-text{
+    padding: 0 1rem;
+    margin: 5rem 0;
+}
+
+.image{
+    width: 100%;
+    min-height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.5rem;
+    h3{
+        font-size: 32px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+    p{
+        margin:10px 0;
+    }
+}
