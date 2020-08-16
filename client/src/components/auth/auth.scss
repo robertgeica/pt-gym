@@ -1,0 +1,87 @@
+.register,
+.login {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	font-weight: 500;
+
+	h1 {
+		margin: 1em 0 0 0;
+	}
+
+	a {
+		text-decoration: none;
+		font-weight: 700;
+		color: #aab9f6;
+	}
+
+	.button {
+		background-color: darken($bg-color, $amount: 10%);
+		color: #fff;
+		font-weight: 600;
+		outline: none;
+		border: none;
+		margin: 1em auto 0 auto;
+		border-radius: 5px;
+		height: 2.4em;
+
+		&:hover {
+			background-color: lighten($color:#414850, $amount: 10%);
+			cursor: pointer;
+		}
+
+		&:active {
+			background-color: #363b42;
+			outline: none;
+			border: 2px solid black;
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		justify-content: center;
+		margin: auto;
+
+		input {
+			width: 15em;
+			height: 2.5em;
+			margin: .5em;
+			border: none;
+			border-radius: 5px;
+			font-family: 'Quicksand', sans-serif;
+			font-weight: 500;
+		}
+	}
+}
+
+// Mobile L
+@media (min-width: 425px) {
+}
+
+// Tablet
+@media (min-width: 768px) {
+	.register,
+	.login {
+		form {
+			input {
+				width: 25em;
+			}
+		}
+	}
+}
+
+// Laptop
+@media (min-width: 1024px) {
+}
+
+// Laptop L
+@media (min-width: 1440px) {
+}
