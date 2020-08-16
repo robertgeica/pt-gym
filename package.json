@@ -1,0 +1,36 @@
+{
+  "name": "authentification",
+  "version": "1.0.0",
+  "description": "",
+  "main": "db.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.9",
+    "express-validator": "^6.6.0",
+    "filepath": "^1.1.0",
+    "fs": "0.0.1-security",
+    "gridfs-stream": "^1.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
+    "mongoose": "4.8.4",
+    "multer-gridfs-storage": "1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "npm run server & npm run client"
+  },
+  "engines": {
+    "node": "14.x"
+  }
+}
