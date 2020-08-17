@@ -1,112 +1,96 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ImageCard from './ImageCard';
 import axios from 'axios';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
+const Uploader = () => {
+	const [ uploadFile, setUploadFile ] = useState({ name: null });
+	const [ files, setFiles ] = useState([]);
+  const [ isUploading, setIsUploading] = useState(false);
 
-class Uploader extends React.Component {
-  constructor() {
-    super();
-
-    this.state ={
-      file: {name: null},
-      images: []
-    };
-
-    this.onFormSubmit = this.onFormSubmit.bind(this);
-    this.onChange = this.onChange.bind(this);
-  }
-
-  componentWillMount() {
-    this.getImageData();
-  }
-
-  onFormSubmit(e) {
-    e.preventDefault();
-    this.fileUpload(this.state.file);
-  }
-
-  onChange(e) {
-    this.setState({file:e.target.files[0]})
-  }
-
-  getImageData() {
-    const url = '/file';
-
-    fetch(url)
-    .then(response => {
-      if(response.ok) return response.json();
-      // throw new Error('Request failed.');
-      return [];
-    })
-    .then(data => { this.setState({images: data}); });
-  }
-
-
-  async fileUpload(file){
-    // const url = '/upload';
-    const formData = new FormData();
-    formData.append('file',file)
+	const getImageData = async () => {
+    const res = await axios.get('/file');
+    setFiles(res.data);
+    setIsUploading(false);
     
-    console.log('uploaded file with name:' + file.name);
-		console.log(formData);
-		await axios.post('/upload', formData);
-   
+	};
+
+	const fileUpload = (uploadFile) => {
+		const formData = new FormData();
+		formData.append('file', uploadFile);
+		axios.post('/upload', formData);
+
+    setIsUploading(true);
+	};
+
+	useEffect(() => {
+		getImageData();
+    // console.log('useff');
+	}, [isUploading]);
+
+	const onFormSubmit = (e) => {
+		e.preventDefault();
+		fileUpload(uploadFile);
+	};
+
+	const onChange = (e) => {
+    // console.log(e.target.files);
+		setUploadFile(e.target.files[0]);
+	};
+
+	// console.log(images);
+	// console.log(file);
+
+  let imgs;
+  if(files.length > 0) {
+    imgs = files.map(i => {
+
+      // console.log('i', i.filename);
+    })
   }
-          
-// <ImageCard key={i._id} alt={i.metadata.originalname} src={'/file/'+i.filename} date={i.uploadDate} />
+  let lastFileFilename = files[files.length-1];
 
-  render() {
-    let images;
-    if(this.state.images.length > 0) {
-      images = this.state.images.map( i => {
+  if(lastFileFilename == undefined) {
+    console.log('no file');
+  } else {
+    lastFileFilename = files[files.length-1].filename;
+  }
 
-        console.log('i', i);
-        return (
-          <img className="upload-img" key={i._id} src={'http://localhost:4000/file/'+i.filename} date={i.uploadDate} />
-        );
-      });
-    } else {
-      images = <h2 className="subtitle">No images :(</h2>;
-    }
+  const copyToClipboard = () => {
+    const copyText = document.getElementById('fileFilename');
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand('copy');
+    console.log('copied', copyText.value);
+  }
 
-    return (
-      <section className="section">
-        <div className="container  is-fluid">
-          <h1 className="title">Photo Gallery</h1>
-          <div className="file is-info has-name is-fullwidth">
-            <label className="file-label">
-              <input className="file-input" type="file" name="resume" onChange={this.onChange} />
-              <span className="file-cta">
-                <span className="file-icon">
-                  <i className="fas fa-upload"></i>
-                </span>
-                <span className="file-label">
-                  Choose a file…
-                </span>
-              </span>
-              <span className="file-name">
-                {this.state.file.name}
-              </span>
-            </label>
-          </div>
-          <br/>
-          <button className="button is-primary" onClick={this.onFormSubmit} type="submit">Upload</button>
-        </div>
-        <hr/>
-        <div className="container is-fluid">
-          <div className="columns is-multiline">
-            {images}
-          </div>
-        </div>
+	return (
+		<div>
+			<h1>upload</h1>
 
+			<div className="container  is-fluid">
+				<input className="file-input" type="file" name="resume" onChange={onChange} />
 
+				<span className="file-name">{uploadFile.name}</span>
+				<br />
+
+				<button onClick={onFormSubmit} type="submit">
+					Upload
+				</button>
+
+        <p>Last uploaded file filename</p>
+        <input type="text" id="fileFilename" defaultValue={lastFileFilename} /> 
+        <button onClick={copyToClipboard}>copy filename</button>
         
+			</div>
+		</div>
+	);
+};
 
-      </section>
-    );
-  }
- }
+// // <ImageCard key={i._id} alt={i.metadata.originalname} src={'/file/'+i.filename} date={i.uploadDate} />
+
+//           <img className="upload-img" key={i._id} src={'http://localhost:4000/file/'+i.filename} date={i.uploadDate} />
+
 
 export default Uploader;

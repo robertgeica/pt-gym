@@ -46,6 +46,7 @@ app.post('/upload', function(req, res) {
       return;
     }
     res.json({error_code:0,err_desc:null});
+    console.log('uploaded file');
   });
 });
 
