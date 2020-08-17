@@ -20,7 +20,6 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 				<Link to="/" onClick={() => setOpen(!open)}>Home</Link>
 				<Link onClick={() => setOpen(!open)}>Projects</Link>
 				<Link onClick={() => setOpen(!open)}>About</Link>
-				<Link to="/upload" onClick={() => setOpen(!open)}>Upload</Link>
 				<Link to="/post" onClick={() => setOpen(!open)}>Postare noua</Link>
 				<Link onClick={() => {setOpen(!open); logout();}} to="/admin"> Logout </Link>
 				

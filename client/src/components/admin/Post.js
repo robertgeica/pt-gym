@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import Upload from './Upload';
 
 import { connect } from 'react-redux';
 import store from '../../store/store';
@@ -50,6 +51,10 @@ const Post = ({ posts }) => {
 
 	return (
 		<div>
+
+			<Upload />
+
+
 			<h3> Adaugare postare </h3>
 			<form className="add-post" onSubmit={e => handleSubmit(e)}>
 				<p>image url</p>

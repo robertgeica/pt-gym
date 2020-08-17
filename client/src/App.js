@@ -37,7 +37,6 @@ const App = () => {
           <Route exact path="/register" component={Register} />
           <Route exact path="/admin" component={Login} />
           <Route exact path="/post" component={Post} />
-          <Route exact path="/upload" component={Upload} />
         </Switch>
       </Router>
     </Provider>

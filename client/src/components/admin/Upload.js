@@ -5,6 +5,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 const Uploader = () => {
+  /* TODO: move state in redux */
 	const [ uploadFile, setUploadFile ] = useState({ name: null });
 	const [ files, setFiles ] = useState([]);
   const [ isUploading, setIsUploading] = useState(false);
