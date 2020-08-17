@@ -1,53 +1,51 @@
 import React, { useState, useEffect } from 'react';
 import ImageCard from './ImageCard';
 import axios from 'axios';
-import { Editor } from 'react-draft-wysiwyg';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
-const Uploader = () => {
-  /* TODO: move state in redux */
-	const [ uploadFile, setUploadFile ] = useState({ name: null });
+// Redux
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import store from '../../store/store';
+
+import { loadFiles, uploadFile } from '../../actions/post';
+
+
+const Upload = ({ posts }) => {
+	const [ file, setUploadFile ] = useState({ name: null });
 	const [ files, setFiles ] = useState([]);
   const [ isUploading, setIsUploading] = useState(false);
 
-	const getImageData = async () => {
-    const res = await axios.get('/file');
-    setFiles(res.data);
+	const getImageData = () => {
+    store.dispatch(loadFiles());
+    setFiles(posts.files);
     setIsUploading(false);
     
 	};
 
-	const fileUpload = (uploadFile) => {
-		const formData = new FormData();
-		formData.append('file', uploadFile);
-		axios.post('/upload', formData);
-
+	const fileUpload = (file) => {
+		store.dispatch(uploadFile(file));
     setIsUploading(true);
 	};
 
+
 	useEffect(() => {
 		getImageData();
-    // console.log('useff');
+    console.log('useff');
 	}, [isUploading]);
 
 	const onFormSubmit = (e) => {
 		e.preventDefault();
-		fileUpload(uploadFile);
+		fileUpload(file);
 	};
 
 	const onChange = (e) => {
-    // console.log(e.target.files);
 		setUploadFile(e.target.files[0]);
 	};
-
-	// console.log(images);
-	// console.log(file);
 
   let imgs;
   if(files.length > 0) {
     imgs = files.map(i => {
 
-      // console.log('i', i.filename);
     })
   }
   let lastFileFilename = files[files.length-1];
@@ -94,4 +92,7 @@ const Uploader = () => {
 //           <img className="upload-img" key={i._id} src={'http://localhost:4000/file/'+i.filename} date={i.uploadDate} />
 
 
-export default Uploader;
+
+const mapStateToProps = (state) => ({ posts: state.posts });
+
+export default connect(mapStateToProps, { uploadFile, loadFiles })(Upload);

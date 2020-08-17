@@ -36,10 +36,10 @@ const Blog = ({auth: { isAuthenticated, loading }, posts }) => {
 						/>
 						{!loading && <Fragment>{isAuthenticated ? <div onClick={(e) => store.dispatch(deletePost(post._id))}>delete</div> : null}</Fragment>}
 
-						<CustomeButton />
 					</Fragment>
 				);
 			})}
+			<CustomeButton />
 
 			<div className="motivatie" style={{ backgroundImage: `url(${image})` }}>
 				<h3>

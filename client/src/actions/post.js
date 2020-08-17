@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { POSTS_LOADED, POSTS_ERROR, ADD_POST, DELETE_POST } from './types';
+import { POSTS_LOADED, POSTS_ERROR, ADD_POST, DELETE_POST, LOAD_FILES, LOAD_FILES_ERROR, UPLOAD_FILE, UPLOAD_FILE_ERROR } from './types';
 
 // Load posts from database
 export const loadPosts = () => async dispatch => {
@@ -71,3 +71,40 @@ export const deletePost = id => async dispatch => {
     })
   }
 }
+
+// load files
+export const loadFiles = () => async dispatch => {
+
+  try {
+    const res = await axios.get('/file');
+
+    dispatch({
+      type: LOAD_FILES,
+      payload: res.data
+    })
+  } catch (error) {
+    dispatch({
+      type: LOAD_FILES_ERROR
+    })
+  }
+}
+// upload file
+export const uploadFile = file => async dispatch => {
+
+  try {
+    const formData = new FormData();
+    formData.append('file', file);
+    console.log(file);
+    const files = await axios.post('/upload', formData);
+
+    dispatch({
+      type: UPLOAD_FILE,
+      payload: [file]
+    }) 
+  } catch (error) {
+    dispatch({
+        type: UPLOAD_FILE_ERROR
+    })
+  }
+}
+
