@@ -7,6 +7,8 @@ import ImageText from '../image-text/image-text'
 import Blog from '../blog/Blog';
 import Numbers from '../numbers/numbers';
 import ContainerPrograme from '../programe2/programe2';
+import ContactForm from '../contact-form/Contact-Form';
+import Footer from '../footer/footer'
 
 import image1 from '../../assets/photo1.png';
 import sala1 from '../../assets/sala1.png';
@@ -50,6 +52,7 @@ const Homepage = () => {
 				title={'Nutritie'}
 				description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec id egestas cras pharetra id proin. Ut malesuada sapien tempor eget.'}
 				link={''}
+				reverse={true}
 			/>
 
 			<ContainerPrograme
@@ -58,6 +61,9 @@ const Homepage = () => {
 				description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec id egestas cras pharetra id proin. '}
 				image={image1}
 			/>
+			<ContactForm/>
+
+			<Footer/>
 		</div>
 	);
 };

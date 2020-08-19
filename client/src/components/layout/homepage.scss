@@ -1,13 +1,105 @@
 
+// .homepage {
+//     margin: 2em 0;
+//     text-align: center;
+//     // color: #fff;
+//     font-weight: 500;
+
+// }
+
+
+// .alloy {
+//     border: 1px solid red;
+// } ciuroiu simona calinesti arges
+
+
 .homepage {
-    margin: 2em 0;
     text-align: center;
-    // color: #fff;
     font-weight: 500;
 
-}
+    @media (min-width: 768px) {
+        width: 85%;
+        float: right;
+    }
+    .landing{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 2rem 4em;
+        max-width: 1000px;
+        margin: 0 auto;
+        @media(min-width:768px){
+            flex-direction: row-reverse;
+            flex-wrap: nowrap;
+        }
+        img{
+            width: 100%;
+            height: auto;
+            margin: 0.5em 0;
+            @media(min-width:768px){
+                max-width: 50%;
+                height: auto;
+                max-height: 90vh;
+            }
+        }
 
+        .text{
 
-.alloy {
-    border: 1px solid red;
+            margin: 0;
+            padding: 0;
+            
+            
+
+            @media(min-width:768px){
+                padding-right:30px;
+                text-align: left!important;
+                align-items: flex-start;
+            }
+            h3{
+                font-size: 32px;
+                margin: 0.5em 0;
+            }
+
+            p{
+                margin: .5em 0;
+                width: 100%;
+            }
+
+            a{
+                position: relative;
+                text-decoration: none;
+                color: black;
+                padding: 3px 7px;
+                border-bottom: 1px solid black;
+
+                
+            }
+            a:before {
+                content : "";
+                position: absolute;
+                left    : 0;
+                z-index: 0;
+                bottom:0;
+                width  : 1px;
+                height  : 50%;  /* or 100px */
+                background: #000;
+              }
+        }
+    }
+
+    .images{
+        margin: 3em 0;
+        display: flex;
+        flex-wrap: wrap;
+
+        
+
+        img{
+            width: 100%;
+            height: auto;
+            @media(min-width:768px){
+                width: 50%;
+            }
+        }
+    }
 }

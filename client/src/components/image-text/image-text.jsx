@@ -4,9 +4,9 @@ import CustomeButton from '../custome-button/custome-button'
 import './image-text.styles.scss';
 
 
-const ImageText = ({img, title, description, link}) =>{
+const ImageText = ({img, title, description, link,reverse}) =>{
     return(
-        <div className='image-text'>
+        <div className={`image-text ${reverse? 'reverse':null}`} >
             <img src={img} className="image" />
 
             <div className='text'>

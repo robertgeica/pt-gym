@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
 
@@ -13,9 +13,11 @@ import image from '../../assets/logo.png';
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 	const [ open, setOpen ] = useState(false);
 
+	if(window.initialWidth<700)setOpen(true)
 
+	
 	const userLinks = (
-		<nav>
+		
 			<ul className={`nav-links ${open ? 'open' : null}`}>
 				<Link to="/" onClick={() => setOpen(!open)}>Home</Link>
 				<Link onClick={() => setOpen(!open)}>Projects</Link>
@@ -24,22 +26,23 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 				<Link onClick={() => {setOpen(!open); logout();}} to="/admin"> Logout </Link>
 				
 			</ul>
-		</nav>
+		
 	);
 
 	const guestLinks = (
-		<nav>
+		
 			<ul className={`nav-links ${open ? 'open' : null}`}>
 				<Link onClick={() => setOpen(!open)}>Home</Link>
 				<Link onClick={() => setOpen(!open)}>Projects</Link>
 				<Link onClick={() => setOpen(!open)}>About</Link>
 			</ul>
-		</nav>
+		
 	);
 
 	return (
 		<nav className="navbar">
 			<Link to="/" className="logo" />
+			{console.log(window.innerWidth)}
 			<HamburgerMenu
 				isOpen={open}
 				menuClicked={() => setOpen(!open)}

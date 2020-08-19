@@ -1,15 +1,29 @@
 nav {
   background-color: #fff;
-  height: 10vh;
-  width: 100%!important;
+  height: 70px;
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: relative;
+  z-index: 10;
+
+  @media (min-width: 768px) {
+    position: fixed;
+    width: 15%;
+    height: 100%!important;
+    top: 0;
+    flex-direction: column;
+    justify-content: initial;
+    background-color: black;
+    padding: 30px 0;
+  }
 }
 
 
 nav {
   border-bottom: 1px solid #D1D1D1;
+  z-index: 10;
 
   .logo{
       width: 40px;
@@ -21,45 +35,73 @@ nav {
       background-image: url(../../assets/logo.png);
       background-repeat: no-repeat;
       align-self: center;
+      background-size: contain;
+      @media (min-width: 768px) {
+        position: relative;
+        top: 0;
+        width: 70px!important;
+        height: 80px;
+      }
   }
 }
 
 .menu {
-  position: absolute!important;
   cursor: pointer;
-  right: 5%;
-  top: 38%;
+  align-self: center;
+  margin-right: 20px;
   transform: translate(-5%, -50%);
-  z-index: 1;
+  z-index: 10;
+  @media (min-width: 768px) {
+    display: none;
+
+  }
 }
 
 .nav-links {
-  position: fixed;
-  top: 0;
-  margin: 0;
-  left: 0;
-  padding: 0;
   display: flex;
-  height: 100%;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-  margin-left: auto;
-  
-  background: #fff;
-  width: 100%;
   flex-direction: column;
-  clip-path: circle(100px at 90% -30%);
-  -webkit-clip-path: circle(100px at 90% -30%);
-  transition: all 1s ease-out;
+  padding: 0;
+  justify-content: center;
+  align-items:center;
+  @media (max-width: 767px) {
+    position: fixed;
+    top: 0;
+    margin: 0;
+    left: 0;
+    padding: 0;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto;
+    z-index: 1;
+    
+    background: #fff;
+    flex-direction: column;
+    clip-path: circle(100px at 90% -30%);
+    -webkit-clip-path: circle(100px at 90% -30%);
+    transition: all 1s ease-out;
+
+  }
 }
 
 .nav-links.open {
   clip-path: circle(1000px);
   -webkit-clip-path: circle(1000px);
+  
 }
 
 .nav-links a {
   color: #000;
   text-decoration: none;
+  @media (min-width: 768px){
+    margin: 20px 0;
+    color: #fff;
+  
+  &:nth-child(1){
+    border-bottom: 1px solid #fff;
+  }
 }
+}
+
