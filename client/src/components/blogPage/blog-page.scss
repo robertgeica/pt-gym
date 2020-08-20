@@ -1,0 +1,21 @@
+.blog-page {
+  width: 80%;
+  float: right;
+
+  .post {
+    border: 1px solid black;
+    margin: 1em 0;
+
+  }
+}
+
+.video-react, .video-player {
+  border: 1px solid red;
+  margin: 0;
+}
+
+.video-react-video {
+  width: 60vw;
+  padding: 0;
+  margin: 0;
+}

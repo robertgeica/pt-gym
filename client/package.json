@@ -29,7 +29,8 @@
     "redux-thunk": "^2.3.0",
     "sweetalert2": "^9.17.1",
     "sweetalert2-react-content": "^3.0.3",
-    "thunk": "0.0.1"
+    "thunk": "0.0.1",
+    "video-react": "^0.14.1"
   },
   "scripts": {
     "start": "react-scripts start",

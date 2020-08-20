@@ -20,10 +20,11 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 		
 			<ul className={`nav-links ${open ? 'open' : null}`}>
 				<Link to="/" onClick={() => setOpen(!open)}>Home</Link>
-				<Link onClick={() => setOpen(!open)}>Projects</Link>
-				<Link onClick={() => setOpen(!open)}>About</Link>
+				<Link to="projects" onClick={() => setOpen(!open)}>Projects</Link>
+				<Link to="about" onClick={() => setOpen(!open)}>About</Link>
+				<Link to="/blog" onClick={() => setOpen(!open)}>Postari</Link>
 				<Link to="/post" onClick={() => setOpen(!open)}>Postare noua</Link>
-				<Link onClick={() => {setOpen(!open); logout();}} to="/admin"> Logout </Link>
+				<Link to="/admin" onClick={() => {setOpen(!open); logout();}}> Logout </Link>
 				
 			</ul>
 		
@@ -32,9 +33,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 	const guestLinks = (
 		
 			<ul className={`nav-links ${open ? 'open' : null}`}>
-				<Link onClick={() => setOpen(!open)}>Home</Link>
-				<Link onClick={() => setOpen(!open)}>Projects</Link>
-				<Link onClick={() => setOpen(!open)}>About</Link>
+				<Link to="/" onClick={() => setOpen(!open)}>Home</Link>
+				<Link to="/projects" onClick={() => setOpen(!open)}>Projects</Link>
+				<Link to="/about" onClick={() => setOpen(!open)}>About</Link>
+				<Link to="/blog" onClick={() => setOpen(!open)}>Postari</Link>
 			</ul>
 		
 	);
@@ -42,7 +44,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 	return (
 		<nav className="navbar">
 			<Link to="/" className="logo" />
-			{console.log(window.innerWidth)}
+			{ /*console.log(window.innerWidth)*/ }
 			<HamburgerMenu
 				isOpen={open}
 				menuClicked={() => setOpen(!open)}

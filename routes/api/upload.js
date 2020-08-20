@@ -1,12 +1,20 @@
 
 var express = require('express');
+const router = express.Router();
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 // var db = mongoose.connection;
 
-mongoose.connect('mongodb://127.0.0.1/mdgym');
+
+
+
+
+// !!!!!!!!! trebuie mutate importurile si variabilele intr-o fila de unde sa fie exportate, de preferat facute in db.js
+
+
+// mongoose.connect('mongodb://127.0.0.1/mdgym');
 var conn = mongoose.connection;
 var multer = require('multer');
 var GridFsStorage = require('multer-gridfs-storage');
@@ -18,7 +26,6 @@ var gfs = Grid(conn.db);
 app.use(function(req, res, next) { //allow cross origin requests
   next();
 });
-
 
 /** Setting up storage using multer-gridfs-storage */
 var storage = GridFsStorage({

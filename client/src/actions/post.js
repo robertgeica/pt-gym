@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { POSTS_LOADED, POSTS_ERROR, ADD_POST, DELETE_POST, LOAD_FILES, LOAD_FILES_ERROR, UPLOAD_FILE, UPLOAD_FILE_ERROR } from './types';
+import { POSTS_LOADED, POSTS_ERROR, ADD_POST, DELETE_POST, LOAD_FILES, LOAD_FILES_ERROR, UPLOAD_FILE, UPLOAD_FILE_ERROR, LOAD_POST } from './types';
 
 // Load posts from database
 export const loadPosts = () => async dispatch => {
@@ -12,6 +12,23 @@ export const loadPosts = () => async dispatch => {
       payload: res.data
     });
 
+  } catch (error) {
+    dispatch({
+      type: POSTS_ERROR
+    })
+  }
+}
+
+// load post 
+export const loadPost = (id) => async dispatch => {
+
+  try {
+    const res = await axios.get('/post/' + id);
+
+    dispatch({
+      type: LOAD_POST,
+      payload: res.data
+    })
   } catch (error) {
     dispatch({
       type: POSTS_ERROR

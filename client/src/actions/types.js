@@ -17,3 +17,5 @@ export const LOAD_FILES = 'LOAD_FILES';
 export const LOAD_FILES_ERROR = 'LOAD_FILES_ERROR';
 export const UPLOAD_FILE = 'UPLOAD_FILE';
 export const UPLOAD_FILE_ERROR = 'UPLOAD_FILE_ERROR';
+
+export const LOAD_POST = 'LOAD_POST';

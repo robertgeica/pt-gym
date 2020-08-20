@@ -29,7 +29,7 @@ router.get('/:id', auth, async (req, res) => {
 		const post = await Post.findById(id);
 
 		if (post.userId !== req.user.id) {
-			console.log('not allowed to delete this post');
+			console.log('not allowed to see this post');
 		}
 
 		res.json(post);

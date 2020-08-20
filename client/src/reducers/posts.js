@@ -1,4 +1,4 @@
-import { POSTS_LOADED, POSTS_ERROR, ADD_POST, DELETE_POST, LOAD_FILES, LOAD_FILES_ERROR, UPLOAD_FILE, UPLOAD_FILE_ERROR } from '../actions/types';
+import { POSTS_LOADED, POSTS_ERROR, ADD_POST, DELETE_POST, LOAD_FILES, LOAD_FILES_ERROR, UPLOAD_FILE, UPLOAD_FILE_ERROR, LOAD_POST } from '../actions/types';
 
 const initialState = {
   posts: [],
@@ -15,7 +15,10 @@ export default function(state = initialState, action) {
 
     case UPLOAD_FILE:
     case LOAD_FILES:
-      return {...state, files: payload}
+      return {...state, files: payload};
+
+    case LOAD_POST:
+      return {...state, currentPost: payload};
 
     case POSTS_ERROR:
     case UPLOAD_FILE_ERROR:

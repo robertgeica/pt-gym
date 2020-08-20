@@ -7,6 +7,8 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Post from './components/admin/Post';
 import Upload from './components/admin/Upload';
+import BlogPage from './components/blogPage/BlogPage';
+import SinglePost from './components/blogPage/SinglePost';
 import './app.scss';
 
 // Redux
@@ -37,6 +39,8 @@ const App = () => {
           <Route exact path="/register" component={Register} />
           <Route exact path="/admin" component={Login} />
           <Route exact path="/post" component={Post} />
+          <Route exact path="/blog" component={BlogPage} />
+          <Route exact path="/blog/:id" component={SinglePost} />
         </Switch>
       </Router>
     </Provider>
