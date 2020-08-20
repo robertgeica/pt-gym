@@ -10,6 +10,11 @@ import store from '../../store/store';
 import { loadFiles, uploadFile } from '../../actions/post';
 
 
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+
+import './admin.scss';
+
 const Upload = ({ posts }) => {
 	const [ file, setUploadFile ] = useState({ name: null });
 	const [ files, setFiles ] = useState([]);
@@ -65,22 +70,21 @@ const Upload = ({ posts }) => {
   }
 
 	return (
-		<div>
-			<h1>upload</h1>
+		<div className="upload-container">
+			<h1>Upload image/video</h1>
 
-			<div className="container  is-fluid">
-				<input className="file-input" type="file" name="resume" onChange={onChange} />
+			<div >
+				<input className="btn" type="file" onChange={onChange} />
 
-				<span className="file-name">{uploadFile.name}</span>
-				<br />
-
-				<button onClick={onFormSubmit} type="submit">
+				<button className="btn" onClick={onFormSubmit} type="submit">
 					Upload
 				</button>
 
         <p>Last uploaded file filename</p>
-        <input type="text" id="fileFilename" defaultValue={lastFileFilename} /> 
-        <button onClick={copyToClipboard}>copy filename</button>
+
+				<input type="text" class="form__field" id="fileFilename" defaultValue={lastFileFilename} required />
+
+        <button className="btn" onClick={copyToClipboard}>Copy File Name</button>
         
 			</div>
 		</div>

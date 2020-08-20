@@ -1,0 +1,124 @@
+.upload-container, .post-container {
+  // width: 80%;
+  // float: right;
+  width: 90%;
+  margin: auto;
+
+}
+
+.post-container {
+}
+.add-post {
+
+  margin: auto;
+  width: 90%;
+
+}
+
+.form__field {
+  border: 0;
+  border-bottom: 2px solid gray;
+  outline: 0;
+  font-size: 1.1rem;
+  color: black;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+}
+
+.form__field:focus {
+  padding-bottom: 6px;  
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #4d6166, #636e72);
+  border-image-slice: 1;
+}
+
+
+
+// Basic Button Style
+.btn {
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 1em .2em ;
+  background-color: transparent;
+  padding: .5em .5em;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 700;
+  border-color: #4d6166;
+  color: #fff;
+  box-shadow: 0 0 20px 20px #4d6166 inset, 0 0 0 0 #4d6166;
+  transition: all 150ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: black;
+    outline: 0;
+    box-shadow: 0 0 10px 0 #4d6166 inset, 0 0 0 0 #4d6166;
+  
+  }
+}
+
+span {
+  position: relative;
+  display: inline-block;
+  margin: 30px 10px;
+}
+
+.basic-slide {
+  display: inline-block;
+  width: 200px;
+  padding: 12px  15px;
+  color: white;
+  background: rgb(134, 207, 163);
+  border: 0;
+  border-radius: 3px;
+  outline: 0;
+  transition: all .3s ease-in-out;
+  font-size: 12px;
+  
+  &::-webkit-input-placeholder {
+    color: black;
+    text-indent: 0;
+  }
+
+  + label {
+    display: inline-block;
+    position: absolute;
+    // top: 0;
+    right: 0;
+    font-size: 12px;
+
+    padding: 12px 15px;
+    text-shadow: 0 1px 0 rgba(19,74,70,.4);
+    // background: #7AB893;
+    transition: all .3s ease-in-out;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background: #377D6A;
+    color: #fff;
+  }
+}
+.basic-slide:focus,
+.basic-slide:active {
+  text-indent: 0;
+  background: #377D6A;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  
+  &::-webkit-input-placeholder {
+    color: #aaa;
+  }
+  + label {
+    transform: translateX(50%);
+  }
+}
+
+@media (min-width: 768px) {
+  .upload-container, .post-container, .add-post, .post {
+    width: 85%;
+    float: right;
+  }
+}
