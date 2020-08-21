@@ -164,8 +164,11 @@ const Post = ({ posts }) => {
 
 						<h1>{post.title}</h1>
 
-						<h2>first s: {post.content.firstSubtitle}</h2>
-						<p>first p: {post.content.firstParagraph}</p>
+						{
+							post.content.firstSubtitle == undefined ?
+							'' : <h2>first s: {post.content.firstSubtitle}</h2>
+						}
+						
 					</div>
 				);
 			})}

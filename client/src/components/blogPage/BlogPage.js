@@ -16,12 +16,21 @@ const BlogPage = ({ posts }) => {
 		store.dispatch(loadPosts());
 	}, []);
 
+	let content = {};
 	console.log(posts.posts); // array-ul care contine toate postarile
 
 	return (
 		<div className="blog-page">
 			{posts.posts.map((post) => {
 				// obiectul post contine informatiile principale
+				if (post.content == undefined) {
+					console.log('wait');
+				} else {
+					content = { ...post.content };
+					console.log(post.image);
+				}
+
+
 				return (
 					<div key={post._id} className="post">
 						<p>Data: {post.date}</p>
@@ -39,13 +48,13 @@ const BlogPage = ({ posts }) => {
 						</Link>
 
 						{ /* obiectul p contine subtitlurile si paragrafele */ }
-							<div key={post.content._id}>
-								<p>firstParagraph: {post.content.firstParagraph}</p>
-								<p>firstSubtitle: {post.content.firstSubtitle}</p>
-								<p>secondParagraph: {post.content.secondParagraph}</p>
-								<p>secondSubtitle: {post.content.secondSubtitle}</p>
-								<p>thirdParagraph: {post.content.thirdParagraph}</p>
-								<p>thirdSubtitle: {post.content.thirdSubtitle}</p>
+							<div key={content._id}>
+								<p>firstParagraph: {content.firstParagraph}</p>
+								<p>firstSubtitle: {content.firstSubtitle}</p>
+								<p>secondParagraph: {content.secondParagraph}</p>
+								<p>secondSubtitle: {content.secondSubtitle}</p>
+								<p>thirdParagraph: {content.thirdParagraph}</p>
+								<p>thirdSubtitle: {content.thirdSubtitle}</p>
 							</div>
 						
 					</div>

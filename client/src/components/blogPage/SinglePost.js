@@ -12,7 +12,6 @@ import './blog-page.scss';
 const SinglePost = (props) => {
 	useEffect(() => {
 		store.dispatch(loadPost(props.match.params.id));
-		console.log('usef');
 	}, []);
 
 	const post = props.currentPost;
@@ -23,8 +22,9 @@ const SinglePost = (props) => {
 	} else {
 		content = { ...post.content };
 	}
+  console.log(post.image);
 
-	console.log(content.firstParagraph);
+	// console.log(content.firstParagraph);
 
 	// console.log(post);
 	return (
@@ -35,10 +35,10 @@ const SinglePost = (props) => {
 			<p>Nume video: {post.video}</p>
 
 			{/* render img if exists*/
-			post.image !== undefined ? <img src={`/file/${post.image}`} /> : ''}
+			post.image == undefined ? <p>no img</p> : <img src={`/file/${post.image}`} />}
 
 			{/* render vid if exists */
-			post.video !== undefined ? <Player className="video-player" playsInline src={`/file/${post.video}`} /> : ''}
+			post.video == undefined ? <p>no video</p> : <Player className="video-player" playsInline src={`/file/${post.video}`} /> }
 
 			<div>
 				<p>firstParagraph: {content.firstParagraph}</p>
