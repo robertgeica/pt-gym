@@ -38,17 +38,16 @@ const BlogPage = ({ posts }) => {
 							Vezi mai mult
 						</Link>
 
-						{post.content.map((p) => (
-							// obiectul p contine subtitlurile si paragrafele
-							<div key={p._id}>
-								<p>firstParagraph: {p.firstParagraph}</p>
-								<p>firstSubtitle: {p.firstSubtitle}</p>
-								<p>secondParagraph: {p.secondParagraph}</p>
-								<p>secondSubtitle: {p.secondSubtitle}</p>
-								<p>thirdParagraph: {p.thirdParagraph}</p>
-								<p>thirdSubtitle: {p.thirdSubtitle}</p>
+						{ /* obiectul p contine subtitlurile si paragrafele */ }
+							<div key={post.content._id}>
+								<p>firstParagraph: {post.content.firstParagraph}</p>
+								<p>firstSubtitle: {post.content.firstSubtitle}</p>
+								<p>secondParagraph: {post.content.secondParagraph}</p>
+								<p>secondSubtitle: {post.content.secondSubtitle}</p>
+								<p>thirdParagraph: {post.content.thirdParagraph}</p>
+								<p>thirdSubtitle: {post.content.thirdSubtitle}</p>
 							</div>
-						))}
+						
 					</div>
 				);
 			})}

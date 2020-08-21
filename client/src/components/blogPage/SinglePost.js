@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import { Player } from 'video-react';
 
 // Redux
@@ -12,17 +12,21 @@ import './blog-page.scss';
 const SinglePost = (props) => {
 	useEffect(() => {
 		store.dispatch(loadPost(props.match.params.id));
+		console.log('usef');
 	}, []);
 
-  const post = props.currentPost;
-  const content = post.content;
+	const post = props.currentPost;
+	let content = {};
 
-  console.log(post.video);
+	if (post.content == undefined) {
+		console.log('wait');
+	} else {
+		content = { ...post.content };
+	}
 
-  if(post.video == undefined) {
-    console.log('wait');
-  }
+	console.log(content.firstParagraph);
 
+	// console.log(post);
 	return (
 		<div key={post._id} className="post">
 			<p>Data: {post.date}</p>
@@ -30,22 +34,20 @@ const SinglePost = (props) => {
 			<p>Titlu: {post.title}</p>
 			<p>Nume video: {post.video}</p>
 
-      { /* render img if exists*/
-        post.image !== undefined ?
-          <img src={`/file/${post.image}`} /> : ''
-      }
+			{/* render img if exists*/
+			post.image !== undefined ? <img src={`/file/${post.image}`} /> : ''}
 
-      { /* render vid if exists */
-        post.video !== undefined ? 
-          <Player 
-            className="video-player"
-            playsInline
-            src={`/file/${post.video}`}
-          /> : ''
-      }
-      
-      
-			
+			{/* render vid if exists */
+			post.video !== undefined ? <Player className="video-player" playsInline src={`/file/${post.video}`} /> : ''}
+
+			<div>
+				<p>firstParagraph: {content.firstParagraph}</p>
+				<p>firstSubtitle: {content.firstSubtitle}</p>
+				<p>secondParagraph: {content.secondParagraph}</p>
+				<p>secondSubtitle: {content.secondSubtitle}</p>
+				<p>thirdParagraph: {content.thirdParagraph}</p>
+				<p>thirdSubtitle: {content.thirdSubtitle}</p>
+			</div>
 		</div>
 	);
 };

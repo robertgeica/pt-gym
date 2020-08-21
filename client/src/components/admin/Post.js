@@ -16,7 +16,7 @@ const Post = ({ posts }) => {
 		image: '',
 		video: '',
 		title: '',
-		content: []
+		content: {}
 	});
 
 	const [ postContent, setPostContent ] = useState({});
@@ -44,7 +44,7 @@ const Post = ({ posts }) => {
 		console.log('postform', postForm);
 		console.log('postcontent', postContent);
 		const post = postForm;
-		post.content.push(postContent);
+		post.content = postContent;
 
 		console.log(post);
 		store.dispatch(addPost(post));
@@ -164,8 +164,8 @@ const Post = ({ posts }) => {
 
 						<h1>{post.title}</h1>
 
-						<h2>first s: {post.content[0].firstSubtitle}</h2>
-						<p>first p: {post.content[0].firstParagraph}</p>
+						<h2>first s: {post.content.firstSubtitle}</h2>
+						<p>first p: {post.content.firstParagraph}</p>
 					</div>
 				);
 			})}

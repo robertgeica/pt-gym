@@ -31,7 +31,7 @@ const Blog = ({ auth: { isAuthenticated, loading }, posts }) => {
             <BlogCard
               image={`http://localhost:4000/file/${post.image}`}
               title={post.title}
-              description={post.content[0].firstParagraph}
+              description={post.content.firstParagraph}
             />
             {!loading && (
               <Fragment>

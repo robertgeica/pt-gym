@@ -6,7 +6,7 @@ const PostSchema = new Schema({
 		type: Object,
 		required: true
 	},
-	
+
 	image: {
 		type: String
 	},
@@ -17,30 +17,29 @@ const PostSchema = new Schema({
 		type: String,
 		required: true
 	},
-	
-	content: [
-		{
-			firstSubtitle: {
-				type: String
-			},
-			firstParagraph: {
-				type: String
-			},
-			secondSubtitle: {
-				type: String
-			},
-			secondParagraph: {
-				type: String
-			},
-			thirdSubtitle: {
-				type: String
-			},
-			thirdParagraph: {
-				type: String
-			}
-		}
-	],
 
+	content: {
+		type: Object,
+		
+		firstSubtitle: {
+			type: String
+		},
+		firstParagraph: {
+			type: String
+		},
+		secondSubtitle: {
+			type: String
+		},
+		secondParagraph: {
+			type: String
+		},
+		thirdSubtitle: {
+			type: String
+		},
+		thirdParagraph: {
+			type: String
+		}
+	},
 	date: {
 		type: Date,
 		default: Date.now
