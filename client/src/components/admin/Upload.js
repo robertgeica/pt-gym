@@ -20,16 +20,17 @@ const Upload = ({ posts }) => {
 	const [ files, setFiles ] = useState([]);
   const [ isUploading, setIsUploading] = useState(false);
 
-	const getImageData = () => {
-    store.dispatch(loadFiles());
-    setFiles(posts.files);
-    setIsUploading(false);
+
+	const getImageData = async () => {
+    await store.dispatch(loadFiles());
+    await setFiles(posts.files);
+    await setIsUploading(false);
     
 	};
 
-	const fileUpload = (file) => {
-		store.dispatch(uploadFile(file));
-    setIsUploading(true);
+	const fileUpload = async (file) => {
+		await store.dispatch(uploadFile(file));
+    await setIsUploading(true);
 	};
 
 
@@ -47,13 +48,22 @@ const Upload = ({ posts }) => {
 		setUploadFile(e.target.files[0]);
 	};
 
+
+	console.log(files);
+
+
   let imgs;
+	let lastFileFilename;
+
   if(files.length > 0) {
     imgs = files.map(i => {
-
+			console.log(i);
     })
-  }
-  let lastFileFilename = files[files.length-1];
+  } else {
+		console.log('there is no file');
+	}
+
+  lastFileFilename = files[files.length-1];
 
   if(lastFileFilename == undefined) {
     console.log('no file');
