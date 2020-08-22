@@ -1,6 +1,8 @@
 .card{
     max-width: 290px;
     margin: 30px;
+    min-width: 250px;
+    position: relative;
     text-align: left;
 }
 .media{
@@ -8,4 +10,28 @@
 }
 .MuiSvgIcon-root{
     height:0.8em!important;
+}
+.aditional{
+    font-size: 10px!important;
+}
+
+.date{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    background: black;
+    font-size: 20px!important;
+    text-align: center;
+    padding: 10px;
+    line-height: 80% !important;
+}
+
+.full-width{
+    max-width: 90%;
+    margin: 0 auto;
+
+    .media{
+        height: 350px;
+    }
 }

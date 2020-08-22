@@ -11,12 +11,19 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 import './blog-card.styles.scss';
 
-const BlogCard = ({ image, title, description }) => {
+const BlogCard = ({ image, title, description,post_id,aditional,date }) => {
 	return (
-		<Card className="card">
-			<CardActionArea>
+		<Card className={`card ${aditional? 'full-width': null}`}>
 				<CardMedia className="media" image={image} title={title} />
 				<CardContent>
+					<Typography className="date" component='p'>
+						11 <br/> iunie
+					</Typography>
+					{aditional? 
+					<Typography className='aditional' color="textSecondary" component="p">
+          				De Duluman Mihai {date} 
+        			</Typography>
+					:null}
 					<Typography gutterBottom variant="h5" component="h2">
 						{title}
 					</Typography>
@@ -24,9 +31,8 @@ const BlogCard = ({ image, title, description }) => {
 						{description}
 					</Typography>
 				</CardContent>
-			</CardActionArea>
 			<CardActions>
-				<Button size="small" >
+				<Button size="small"  href={`/blog/${post_id}`}>
 					Afla mai multe
 					<ArrowForwardIcon />
 				</Button>

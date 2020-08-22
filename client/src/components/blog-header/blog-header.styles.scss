@@ -1,0 +1,26 @@
+.blog-header{
+    height: 300px;
+    background-image:url(../../assets/Blog-page-image.png);
+    width:100%;
+    background-position:center ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    @media (max-width:768px){
+      height: 200px;
+    } 
+
+    h1{
+      color: white;
+      font-size: 75px;
+      margin:0;
+    }
+    h5{
+      color: white;
+      font-size: 20px;
+      margin: 0;
+    }
+}

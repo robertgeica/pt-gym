@@ -4,10 +4,11 @@ import {Link} from 'react-router-dom';
 
 import './custome-button.styles.scss'
 
-const CustomeButton = (link) =>{
+const CustomeButton = ({goTo}) =>{
+    console.log(goTo);
     return(
         <div className="border">
-                <Link className='link' to={`/${link}`}>Vezi mai multe articole</Link>
+                <Link className='link' to={goTo}>Vezi mai multe articole</Link>
         </div>
     )
 }

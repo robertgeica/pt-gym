@@ -43,6 +43,7 @@ const App = () => {
           <Route exact path="/blog/:id" component={SinglePost} />
         </Switch>
       </Router>
+      
     </Provider>
   );
 }

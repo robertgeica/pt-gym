@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 // Redux
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import BlogCard from '../blog/blog-card/Blog-card';
+import BlogHeader from '../blog-header/Blog-header';
+import Footer from '../footer/footer'
 
 import { loadPosts, loadPost } from '../../actions/post';
 import store from '../../store/store';
@@ -21,6 +24,8 @@ const BlogPage = ({ posts }) => {
 
 	return (
 		<div className="blog-page">
+
+			<BlogHeader/>
 			{posts.posts.map((post) => {
 				// obiectul post contine informatiile principale
 				if (post.content == undefined) {
@@ -33,33 +38,21 @@ const BlogPage = ({ posts }) => {
 
 				return (
 					<div key={post._id} className="post">
-						<p>Data: {post.date}</p>
-						<p>Nume imagine: {post.image}</p>
-						<p>Titlu: {post.title}</p>
-						<p>Nume video: {post.video}</p>
+						<BlogCard
+							image={`http://localhost:4000/file/${post.image}`}
+							title={post.title}
+							description={content.firstParagraph}
+							aditional='asd'
+							date={post.date}
+							post_id={post._id}
+						/>
 
-						<Link
-							onClick={() => {
-								store.dispatch(loadPost(post._id));
-							}}
-							to={`/blog/${post._id}`}
-						>
-							Vezi mai mult
-						</Link>
-
-						{ /* obiectul p contine subtitlurile si paragrafele */ }
-							<div key={content._id}>
-								<p>firstParagraph: {content.firstParagraph}</p>
-								<p>firstSubtitle: {content.firstSubtitle}</p>
-								<p>secondParagraph: {content.secondParagraph}</p>
-								<p>secondSubtitle: {content.secondSubtitle}</p>
-								<p>thirdParagraph: {content.thirdParagraph}</p>
-								<p>thirdSubtitle: {content.thirdSubtitle}</p>
-							</div>
 						
 					</div>
 				);
 			})}
+
+			<Footer/>
 		</div>
 	);
 };

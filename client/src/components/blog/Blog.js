@@ -40,6 +40,7 @@ const Blog = ({ auth: { isAuthenticated, loading }, posts }) => {
 							image={`http://localhost:4000/file/${post.image}`}
 							title={post.title}
 							description={content.firstParagraph}
+							post_id={post._id}
 						/>
 						{!loading && (
 							<Fragment>
@@ -51,7 +52,9 @@ const Blog = ({ auth: { isAuthenticated, loading }, posts }) => {
 					</Fragment>
 				);
 			})}
-			<CustomeButton />
+			<CustomeButton 
+			goTo={'/blog'}
+			/>
 
 			<div className="motivatie" style={{ backgroundImage: `url(${image})` }}>
 				<span>&#34;</span>

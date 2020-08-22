@@ -1,14 +1,19 @@
 .blog-page {
-  width: 80%;
+  width: 85%;
   float: right;
 
+  @media (max-width:768px){
+    width: 100%;
+  } 
+
   .post {
-    border: 1px solid black;
-    margin: 1em 0;
-
+    padding: 50px 0;
+    width: 100%;
+    background-color: #fff;
   }
-}
+  
 
+}
 .video-react, .video-player {
   border: 1px solid red;
   margin: 0;
