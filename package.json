@@ -6,6 +6,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.1",
@@ -17,9 +18,9 @@
     "fs": "0.0.1-security",
     "gridfs-stream": "^1.1.1",
     "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.0",
     "multer": "^1.4.2",
-    "mongoose": "4.8.4",
-    "multer-gridfs-storage": "1.0.0"
+    "multer-gridfs-storage": "^4.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
